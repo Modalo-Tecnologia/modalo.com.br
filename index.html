@@ -18,14 +18,14 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-        /* Variáveis de Cores e Estilo */
+        /* Variáveis de Cores e Estilo - ATUALIZADO PARA TEMA CLARO */
         :root {
-            --bg-color: #0b0f19;
-            --bg-alt: #111827;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
+            --bg-color: #ffffff;
+            --bg-alt: #f8fafc; /* Cinza super claro para dar contraste suave nas seções */
+            --text-main: #0f172a; /* Quase preto / Slate escuro */
+            --text-muted: #475569; /* Cinza médio para textos de apoio */
+            --accent: #2563eb; /* Azul forte */
+            --accent-hover: #1d4ed8;
             --font-main: 'Inter', sans-serif;
         }
 
@@ -63,10 +63,10 @@
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(11, 15, 25, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .nav-container {
@@ -76,14 +76,26 @@
             height: 80px;
         }
 
+        /* Logo Flex (Ícone + Texto) */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
         .logo img {
-            max-height: 40px;
+            max-height: 32px;
             width: auto;
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -99,7 +111,7 @@
 
         .btn-primary {
             background-color: var(--accent);
-            color: #fff;
+            color: #fff !important;
             padding: 0.75rem 1.5rem;
             border-radius: 4px;
             font-weight: 600;
@@ -118,7 +130,7 @@
             display: flex;
             align-items: center;
             padding-top: 80px;
-            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 40%);
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 50%);
         }
 
         .hero-content {
@@ -176,16 +188,18 @@
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             padding: 2.5rem;
             border-radius: 8px;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .service-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .service-card i {
@@ -227,7 +241,8 @@
         .cta-section {
             text-align: center;
             padding: 6rem 0;
-            background: linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
+            background: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         .cta-section h2 {
@@ -236,16 +251,26 @@
         }
 
         footer {
-            background-color: #000;
+            background-color: var(--bg-alt);
             padding: 3rem 0;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        footer img {
-            height: 30px;
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-main);
             margin-bottom: 1rem;
-            opacity: 0.5;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-logo img {
+            height: 24px;
         }
 
         footer p {
@@ -256,7 +281,7 @@
         /* Responsividade */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Em um site real, aqui entraria um menu hamburguer */
+                display: none; 
             }
             .hero h1 {
                 font-size: 2.5rem;
@@ -273,13 +298,13 @@
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">
-                <!-- Se a logo falhar ao carregar no domínio real, ela mostrará o texto alt -->
-                <img src="https://modalo.com.br/logo.png" alt="Modalo Tecnologia" onerror="this.onerror=null; this.src=''; this.alt='MODALO'; this.style.fontSize='1.5rem'; this.style.fontWeight='800'; this.style.color='#fff';">
+                <img src="https://modalo.com.br/favicon.png" alt="Ícone Modalo" onerror="this.style.display='none'">
+                MODALO
             </a>
             <nav class="nav-links">
                 <a href="#sobre">A Abordagem</a>
                 <a href="#solucoes">Soluções</a>
-                <a href="#contato" class="btn-primary" style="color: white; padding: 0.5rem 1rem;">Falar com Especialista</a>
+                <a href="#contato" class="btn-primary" style="padding: 0.5rem 1rem;">Falar com Especialista</a>
             </nav>
         </div>
     </header>
@@ -308,7 +333,7 @@
             </div>
             <div>
                 <!-- Imagem abstrata de tecnologia/negócios -->
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard e Análise" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard e Análise" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
             </div>
         </div>
     </section>
@@ -347,8 +372,8 @@
     <section id="contato" class="cta-section">
         <div class="container">
             <h2>Pronto para otimizar sua operação?</h2>
-            <p style="font-size: 1.25rem; color: #d1d5db; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Agende uma conversa direta com nossos arquitetos de soluções. Entenderemos seu gargalo e proporemos um plano de ataque prático.</p>
-            <!-- Substitua o link do href pelo link do seu WhatsApp ou email (ex: mailto:contato@modalo.com.br) -->
+            <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Agende uma conversa direta com nossos arquitetos de soluções. Entenderemos seu gargalo e proporemos um plano de ataque prático.</p>
+            
             <a href="mailto:contato@modalo.com.br" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
                 <i class="ph ph-envelope-simple" style="margin-right: 8px;"></i> Iniciar Conversa
             </a>
@@ -358,7 +383,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="https://modalo.com.br/logo.png" alt="Modalo" onerror="this.style.display='none'">
+            <div class="footer-logo">
+                <img src="https://modalo.com.br/favicon.png" alt="Ícone Modalo" onerror="this.style.display='none'">
+                MODALO
+            </div>
             <p>&copy; 2024 Modalo Tecnologia. Inteligência Técnica e Eficiência Operacional. Todos os direitos reservados.</p>
         </div>
     </footer>
